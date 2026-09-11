@@ -404,6 +404,7 @@ table.tasktable{ width:100%; border-collapse:collapse; }
 .td-title .titulo{ color:var(--ink); font-weight:500; line-height:1.4; }
 .td-title .flags{ margin-top:4px; display:flex; gap:6px; }
 .flag{ font-size:10px; color:var(--warning-ink); display:inline-flex; align-items:center; gap:3px; font-weight:600; }
+.flag svg{ width:11px; height:11px; flex:none; }
 .muted{ color:var(--ink-3); }
 .td-nowrap{ white-space:nowrap; }
 
@@ -1424,7 +1425,6 @@ function renderTaskTable(tasks, opts){
   }
   var rows = tasks.map(function(t){
     var flags = [];
-    if(t.naoEncontradoNaPautaAtual) flags.push('<span class="flag">'+icon("alert")+' não encontrado na pauta atual</span>');
     if(t.reverInformacao) flags.push('<span class="flag">'+icon("alert")+' rever informação</span>');
     return '<tr data-action="open-task" data-id="'+t.id+'">'+
       '<td class="td-title'+prioAccentClass(t)+'">'+
