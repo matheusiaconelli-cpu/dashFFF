@@ -2464,16 +2464,21 @@ function renderFinSaldanha(){
 
 
 /* ============================================================
-   FINANCEIRO — ENCONTRO DE CONTAS — dados reais (screenshot enviado por Matheus, 04/09/2026)
+   FINANCEIRO — ENCONTRO DE CONTAS — dados reais (screenshot enviado por Matheus, 14/09/2026 — atualiza o screenshot de 04/09/2026)
    ============================================================ */
-var ENCONTRO_CONTAS_ORIGEM = { tipo:"screenshot", descricao:"Planilha de encontro de contas entre entidades/sócios, enviada por Matheus", data:"2026-09-04" };
+var ENCONTRO_CONTAS_ORIGEM = { tipo:"screenshot", descricao:"Planilha de encontro de contas entre entidades/sócios, enviada por Matheus", data:"2026-09-14" };
 
-/* Ordem e agrupamento visual (separado por linha em branco) preservados exatamente como na planilha de origem.
+/* Ordem e agrupamento visual (separado por linha em branco) preservados exatamente como no screenshot de origem.
    "descricaoOriginal" mantém o texto tal como está na fonte (incluindo "PAGAR" em vez de "PAGA" na 1ª linha).
-   pagador/recebedor são a leitura direta dessa mesma frase, usados apenas para calcular a posição líquida abaixo. */
+   pagador/recebedor são a leitura direta dessa mesma frase, usados apenas para calcular a posição líquida abaixo.
+
+   Histórico (valores anteriores, do screenshot de 04/09/2026, substituídos nesta atualização):
+   - 1º grupo, 1ª linha: era "FFF pagar para a MGPT" (FFF → MGPT) € 5.074,50 — sentido invertido no novo screenshot (MGPT → FFF), mesmo valor.
+   - 4º grupo: eram 4 linhas — Franqueadora € 58.075,79; FFF Saldanha → FFF € 50.000,00; FFF Saldanha → MGPT € 8.546,10; FFF Saldanha → FFF € 1.260,00 (duas linhas para "FFF Saldanha paga para a FFF").
+     O novo screenshot mostra apenas 3 linhas neste grupo, com "FFF Saldanha paga para a FFF" como um único valor de € 52.860,00 (Franqueadora e MGPT inalterados). */
 var ENCONTRO_CONTAS_GRUPOS = [
   [
-    {descricaoOriginal:"FFF pagar para a MGPT", pagador:"FFF", recebedor:"MGPT", valor:5074.50},
+    {descricaoOriginal:"MGPT pagar para a FFF", pagador:"MGPT", recebedor:"FFF", valor:5074.50},
     {descricaoOriginal:"FFF paga para a Maverick", pagador:"FFF", recebedor:"Maverick", valor:19866.63}
   ],
   [
@@ -2485,9 +2490,8 @@ var ENCONTRO_CONTAS_GRUPOS = [
   ],
   [
     {descricaoOriginal:"FFF Saldanha paga para a Franqueadora", pagador:"FFF Saldanha", recebedor:"Franqueadora", valor:58075.79},
-    {descricaoOriginal:"FFF Saldanha paga para a FFF", pagador:"FFF Saldanha", recebedor:"FFF", valor:50000.00},
-    {descricaoOriginal:"FFF Saldanha paga para a MGPT", pagador:"FFF Saldanha", recebedor:"MGPT", valor:8546.10},
-    {descricaoOriginal:"FFF Saldanha paga para a FFF", pagador:"FFF Saldanha", recebedor:"FFF", valor:1260.00}
+    {descricaoOriginal:"FFF Saldanha paga para a FFF", pagador:"FFF Saldanha", recebedor:"FFF", valor:52860.00},
+    {descricaoOriginal:"FFF Saldanha paga para a MGPT", pagador:"FFF Saldanha", recebedor:"MGPT", valor:8546.10}
   ]
 ];
 
